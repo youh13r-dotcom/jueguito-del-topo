@@ -1,16 +1,17 @@
-body{
-    background-color: #AACDDC;
+body {
+    background-color: #aacddc;
     height: 100vh;
     padding: 0;
     width: 100vw;
     margin: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#caja_principal{
-    background-color: #81A6C6;
+#caja_principal {
+    background-color: #81a6c6;
     width: 45rem;
     padding: 3rem;
     margin: 1rem;
@@ -20,15 +21,23 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
-.hueco{
+.hueco {
     font-size: 2rem;
     cursor: pointer;
     transition: 0.3s ease;
 }
 
-.hueco:hover{
+.hueco:hover {
     transform: scale(1.5);
+}
+
+#contenedor_info {
+    background-color: #81a6c6;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    padding: 1rem;
+    margin-top: 1rem;
 }
