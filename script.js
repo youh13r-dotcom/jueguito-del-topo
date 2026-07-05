@@ -62,6 +62,11 @@ todosLosD.forEach((hueco) => {
           spanTiempo.innerHTML = tp;
         } else {
           clearInterval(interval);
+          alert(
+            "el juego a acabado, le diste al topo " +
+              contador +
+              "vezes. dale a reiniciar",
+          );
         }
       }, 1000);
     }
