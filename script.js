@@ -1,9 +1,5 @@
 let dA = [];
 const huecos = document.getElementById("huecos_1");
-const huecos2 = document.getElementById("huecos_2");
-const huecos3 = document.getElementById("huecos_3");
-const huecos4 = document.getElementById("huecos_4");
-const huecos5 = document.getElementById("huecos_5");
 const spanContador = document.getElementById("contador");
 const spanTiempo = document.getElementById("tiempo");
 const botonReiniciar = document.getElementById("reiniciar");
@@ -17,17 +13,16 @@ botonReiniciar.addEventListener("click", () => {
 });
 
 let acumuladorHTML1 = `<div id="d1" class="hueco">🤭</div>`;
-let acumuladorHTML2 = "";
-let acumuladorHTML3 = "";
-let acumuladorHTML4 = "";
-let acumuladorHTML5 = "";
 
 let contador = 0;
 let interval = null;
 let tp = 15;
 
 for (let i = 2; i <= 50; i++) {
-  if (i <= 10) {
+
+  acumuladorHTML1 += `<div id="d${i}" class="hueco">🕳</div>`;
+
+/*if (i <= 10) {
     acumuladorHTML1 += `<div id="d${i}" class="hueco">🕳</div>`;
   } else if (i > 10 && i <= 20) {
     acumuladorHTML2 += `<div id="d${i}" class="hueco">🕳</div>`;
@@ -37,14 +32,10 @@ for (let i = 2; i <= 50; i++) {
     acumuladorHTML4 += `<div id="d${i}" class="hueco">🕳</div>`;
   } else if (i > 40 && i <= 50) {
     acumuladorHTML5 += `<div id="d${i}" class="hueco">🕳</div>`;
-  }
+    }*/
 }
 
 huecos.innerHTML = acumuladorHTML1;
-huecos2.innerHTML = acumuladorHTML2;
-huecos3.innerHTML = acumuladorHTML3;
-huecos4.innerHTML = acumuladorHTML4;
-huecos5.innerHTML = acumuladorHTML5;
 
 for (let i = 1; i <= 50; i++) {
   let elementoHTML = document.getElementById("d" + i);
@@ -65,8 +56,13 @@ todosLosD.forEach((hueco) => {
           alert(
             "el juego a acabado, le diste al topo " +
               contador +
-              "vezes. dale a reiniciar",
+              " vezes. dale a reiniciar",
           );
+          tp = 15;
+          interval = null;
+          contador = 0;
+          spanContador.innerHTML = 0;
+          spanTiempo.innerHTML = 15;
         }
       }, 1000);
     }
