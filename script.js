@@ -65,8 +65,13 @@ todosLosD.forEach((hueco) => {
           alert(
             "el juego a acabado, le diste al topo " +
               contador +
-              "vezes. dale a reiniciar",
+              " vezes. dale a reiniciar",
           );
+          tp = 15;
+          interval = null;
+          contador = 0;
+          spanContador.innerHTML = 0;
+          spanTiempo.innerHTML = 15;
         }
       }, 1000);
     }
