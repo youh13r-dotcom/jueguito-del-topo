@@ -1,6 +1,5 @@
 body {
     background-color: #aacddc;
-    height: 100vh;
     padding: 0;
     width: 100vw;
     margin: 0;
@@ -12,19 +11,33 @@ body {
 
 #caja_principal {
     background-color: #81a6c6;
-    width: 45rem;
     padding: 3rem;
     margin: 1rem;
     border-radius: 20px;
     box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+}
+
+#huecos_1{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 450px) {
+    #huecos_1 {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    #caja_principal {
+        padding: 1rem;
+    }
 }
 
 .hueco {
-    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -32,10 +45,11 @@ body {
     outline: none;
     cursor: pointer;
     transition: 0.3s ease;
+    font-size: clamp(2rem, 5vw, 3rem);
 }
 
 .hueco:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 
 #contenedor_info {
@@ -43,6 +57,14 @@ body {
     border-radius: 20px;
     box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
+    font-size: 1.5rem;
     padding: 1rem;
     margin-top: 1rem;
+}
+
+#reiniciar {
+    background-color: #81a6c6;
+    font-size: 2rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
 }
