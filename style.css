@@ -30,7 +30,7 @@ body {
     }
 
     #caja_principal {
-        padding: 1rem;
+        padding: 0.7rem;
     }
 }
 
@@ -45,7 +45,7 @@ body {
     outline: none;
     cursor: pointer;
     transition: 0.3s ease;
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(1.8rem, 5vw, 3rem);
 }
 
 .hueco:hover {
@@ -60,6 +60,10 @@ body {
     font-size: 1.5rem;
     padding: 1rem;
     margin-top: 1rem;
+}
+
+.contenedor_info_p{
+    margin: 5px;
 }
 
 #reiniciar {
