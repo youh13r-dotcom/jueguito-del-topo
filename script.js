@@ -22,17 +22,6 @@ for (let i = 2; i <= 50; i++) {
 
   acumuladorHTML1 += `<div id="d${i}" class="hueco">🕳</div>`;
 
-/*if (i <= 10) {
-    acumuladorHTML1 += `<div id="d${i}" class="hueco">🕳</div>`;
-  } else if (i > 10 && i <= 20) {
-    acumuladorHTML2 += `<div id="d${i}" class="hueco">🕳</div>`;
-  } else if (i > 20 && i <= 30) {
-    acumuladorHTML3 += `<div id="d${i}" class="hueco">🕳</div>`;
-  } else if (i > 30 && i <= 40) {
-    acumuladorHTML4 += `<div id="d${i}" class="hueco">🕳</div>`;
-  } else if (i > 40 && i <= 50) {
-    acumuladorHTML5 += `<div id="d${i}" class="hueco">🕳</div>`;
-    }*/
 }
 
 huecos.innerHTML = acumuladorHTML1;
