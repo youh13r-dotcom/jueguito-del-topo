@@ -1,66 +1,106 @@
-let dA = [];
+let dA = [];//todos los div
+
+//elemtos de dom
 const huecos = document.getElementById("huecos_1");
 const spanContador = document.getElementById("contador");
 const spanTiempo = document.getElementById("tiempo");
 const botonReiniciar = document.getElementById("reiniciar");
-botonReiniciar.addEventListener("click", () => {
-  clearInterval(interval);
-  tp = 15;
-  interval = null;
-  contador = 0;
-  spanContador.innerHTML = 0;
-  spanTiempo.innerHTML = 15;
-});
 
-let acumuladorHTML1 = `<div id="d1" class="hueco">🤭</div>`;
-
+//variables para el contador
 let contador = 0;
 let interval = null;
 let tp = 15;
 
-for (let i = 2; i <= 50; i++) {
+//ritas de los iconos svg
+const RUTA_CHANCHO = "./assets/chancho.svg";
+const RUTA_OYO = "./assets/oyo.svg";
 
-  acumuladorHTML1 += `<div id="d${i}" class="hueco">🕳</div>`;
+//funcionamiento del boton reiniciar
+botonReiniciar.addEventListener("click", () => {
+  clearInterval(interval);
+  interval = null;
+  tp = 15;
+  contador = 0;
 
-}
+  spanContador.textContent = 0;
+  spanTiempo.textContent = 15;
+});
 
-huecos.innerHTML = acumuladorHTML1;
+// Crear los huecos
+let html = "";
 
 for (let i = 1; i <= 50; i++) {
-  let elementoHTML = document.getElementById("d" + i);
-  dA.push(elementoHTML);
+  const tipo = i === 1 ? "chancho" : "oyo";
+  const src = i === 1 ? RUTA_CHANCHO : RUTA_OYO;
+
+  html += `
+    <div id="d${i}" class="hueco">
+      <img
+        class="svg"
+        src="${src}"
+        data-tipo="${tipo}"
+        alt=""
+      >
+    </div>
+  `;
+}
+
+huecos.innerHTML = html;
+
+// Guardar referencias a los divs
+for (let i = 1; i <= 50; i++) {
+  dA.push(document.getElementById(`d${i}`));
 }
 
 const todosLosD = document.querySelectorAll(".hueco");
 
 todosLosD.forEach((hueco) => {
   hueco.addEventListener("click", () => {
+
+    // Iniciar el temporizador
     if (interval === null) {
       interval = setInterval(() => {
         if (tp > 0) {
           tp--;
-          spanTiempo.innerHTML = tp;
+          spanTiempo.textContent = tp;
         } else {
           clearInterval(interval);
+
           alert(
-            "el juego a acabado, le diste al topo " +
-              contador +
-              " vezes. dale a reiniciar",
+            `El juego ha acabado. Le diste al chancho ${contador} veces. Dale a reiniciar.`
           );
-          tp = 15;
+
           interval = null;
+          tp = 15;
           contador = 0;
-          spanContador.innerHTML = 0;
-          spanTiempo.innerHTML = 15;
+
+          spanTiempo.textContent = 15;
+          spanContador.textContent = 0;
         }
       }, 1000);
     }
-    if (hueco.textContent === "🤭") {
+
+    const img = hueco.querySelector("img");
+
+    if (img.dataset.tipo === "chancho") {
+
       contador++;
-      spanContador.innerHTML = contador;
-      hueco.textContent = "🕳";
-      let na = naleatorio(0, dA.length - 1);
-      dA[na].textContent = "🤭";
+      spanContador.textContent = contador;
+
+      // Convertir este hueco en hoyo
+      img.dataset.tipo = "oyo";
+      img.src = RUTA_OYO;
+
+      // Elegir otro hueco
+      let na;
+
+      do {
+        na = naleatorio(0, dA.length - 1);
+      } while (dA[na] === hueco);
+
+      const nuevaImg = dA[na].querySelector("img");
+      nuevaImg.dataset.tipo = "chancho";
+      nuevaImg.src = RUTA_CHANCHO;
     }
   });
 });

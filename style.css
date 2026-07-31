@@ -52,6 +52,11 @@ body {
     transform: scale(1.2);
 }
 
+.svg{
+    width: 3rem;
+    height: 3rem;
+}
+
 #contenedor_info {
     background-color: #81a6c6;
     border-radius: 20px;
