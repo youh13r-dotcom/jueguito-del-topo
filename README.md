@@ -1,6 +1,6 @@
 # Jueguito del Topo
 
-Un pequeño juego inspirado en "Whack-a-Mole" desarrollado para practicar HTML, CSS y JavaScript.
+Un pequeño juego inspirado en "Whack-a-Mole" desarrollado para practicar GitHub, HTML, CSS y JavaScript.
 
 ## 🚀 Tecnologías
 
